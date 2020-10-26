@@ -1,0 +1,31 @@
+{
+  "name": "yami-chan",
+  "version": "1.0.0",
+  "description": "Command-based Discord bot ",
+  "main": "dist/bot.js",
+  "scripts": {
+    "start": "tsc && node dist/bot.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aperture147/yami-chan.git"
+  },
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "author": "aperture147",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aperture147/yami-chan/issues"
+  },
+  "homepage": "https://github.com/aperture147/yami-chan#readme",
+  "dependencies": {
+    "@types/node": "^14.14.3",
+    "discord.js": "^12.4.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.3"
+  }
+}
