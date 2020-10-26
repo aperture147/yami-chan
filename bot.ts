@@ -1,4 +1,5 @@
 import {Client} from "discord.js";
+import {handle} from "./command";
 
 const client = new Client();
 
@@ -7,7 +8,7 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-
+    handle(msg)
 });
 
-client.login('NzY5MDk4NDk0Njg1MjE2Nzg5.X5KEyg.08jKSX86dGkfeh1mS5VaunHbO1c');
+client.login(process.env.DISCORD_TOKEN);
