@@ -20,20 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e13e1cb-8949-49a5-978d-3cdb07678f28" name="Default Changelist" comment="fixup! finish prototype" />
-    <list id="9488fcc7-7ec2-4ba3-944f-95b6674250a1" name="finish prototype" comment="">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/command/copypasta.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/command/fact.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/command/image.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/command/ping.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mongo.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command.ts" beforeDir="false" afterPath="$PROJECT_DIR$/command.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,13 +89,13 @@
     <task active="true" id="Default" summary="Default task">
       <changelist id="5e13e1cb-8949-49a5-978d-3cdb07678f28" name="Default Changelist" comment="" />
       <changelist id="" name="fixup! finish prototype" comment="" />
-      <changelist id="9488fcc7-7ec2-4ba3-944f-95b6674250a1" name="finish prototype" comment="" />
+      <changelist id="" name="finish prototype" comment="" />
       <created>1603694044105</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603694044105</updated>
       <workItem from="1603694045298" duration="3435000" />
-      <workItem from="1603697629388" duration="15650000" />
+      <workItem from="1603697629388" duration="16012000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1603698419110</created>
@@ -132,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603713194471</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="finish prototype">
+      <created>1603714770201</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1603714770201</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,9 +144,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init" />
-    <MESSAGE value="finish prototype" />
     <MESSAGE value="fixup! finish prototype" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixup! finish prototype" />
+    <MESSAGE value="finish prototype" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish prototype" />
   </component>
   <component name="WindowStateProjectService">
     <state x="760" y="336" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603714186981">
@@ -164,14 +157,14 @@
       <screen x="0" y="23" width="1920" height="1022" />
     </state>
     <state x="776" y="243" key="#com.intellij.ide.util.MemberChooser/1920.23.1920.1057/0.23.1920.1022@0.23.1920.1022" timestamp="1603696424856" />
-    <state x="571" y="94" key="CommitChangelistDialog2" timestamp="1603714708651">
+    <state x="571" y="94" key="CommitChangelistDialog2" timestamp="1603714770098">
       <screen x="0" y="23" width="1920" height="1022" />
     </state>
-    <state x="571" y="94" key="CommitChangelistDialog2/1920.23.1920.1057/0.23.1920.1022@0.23.1920.1022" timestamp="1603714708651" />
-    <state x="196" y="100" width="1536" height="817" key="DiffContextDialog" timestamp="1603713418301">
+    <state x="571" y="94" key="CommitChangelistDialog2/1920.23.1920.1057/0.23.1920.1022@0.23.1920.1022" timestamp="1603714770098" />
+    <state x="196" y="100" width="1536" height="817" key="DiffContextDialog" timestamp="1603715118117">
       <screen x="0" y="23" width="1920" height="1022" />
     </state>
-    <state x="196" y="100" width="1536" height="817" key="DiffContextDialog/1920.23.1920.1057/0.23.1920.1022@0.23.1920.1022" timestamp="1603713418301" />
+    <state x="196" y="100" width="1536" height="817" key="DiffContextDialog/1920.23.1920.1057/0.23.1920.1022@0.23.1920.1022" timestamp="1603715118117" />
     <state width="1372" height="293" key="GridCell.Tab.0.bottom" timestamp="1603713114516">
       <screen x="0" y="23" width="1920" height="1022" />
     </state>
@@ -192,10 +185,10 @@
       <screen x="0" y="23" width="1920" height="1022" />
     </state>
     <state x="607" y="434" key="VCS.ChangelistChooser/1920.23.1920.1057/0.23.1920.1022@0.23.1920.1022" timestamp="1603713237071" />
-    <state x="353" y="254" key="Vcs.Push.Dialog.v2" timestamp="1603713207770">
+    <state x="353" y="254" key="Vcs.Push.Dialog.v2" timestamp="1603714779727">
       <screen x="0" y="23" width="1920" height="1022" />
     </state>
-    <state x="353" y="254" key="Vcs.Push.Dialog.v2/1920.23.1920.1057/0.23.1920.1022@0.23.1920.1022" timestamp="1603713207770" />
+    <state x="353" y="254" key="Vcs.Push.Dialog.v2/1920.23.1920.1057/0.23.1920.1022@0.23.1920.1022" timestamp="1603714779727" />
     <state x="145" y="63" width="1019" height="670" key="dock-window-1" timestamp="1603708618355">
       <screen x="0" y="23" width="1920" height="1022" />
     </state>

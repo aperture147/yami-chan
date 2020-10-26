@@ -10,53 +10,53 @@ const re = /[\s]+/
 export function handle(msg: Message): void {
     const cmd = msg.content.split(re, 1)[0].toLowerCase()
     switch (cmd) {
-        case "$p":
-        case "$ping":
+        case "t$p":
+        case "t$ping":
             ping(msg)
             break
 
-        case "$f":
-        case "$fact":
+        case "t$f":
+        case "t$fact":
             fact.send(msg)
             break
 
-        case "$af":
-        case "$addfact":
+        case "t$af":
+        case "t$addfact":
             fact.add(msg)
             break
 
-        case "$rf":
-        case "$randomfact":
+        case "t$rf":
+        case "t$randomfact":
             fact.random(msg)
             break
 
-        case "$c":
-        case "$copypasta":
+        case "t$c":
+        case "t$copypasta":
             copypasta.send(msg)
             break
 
-        case "$ac":
-        case "$addcopypasta":
+        case "t$ac":
+        case "t$addcopypasta":
             copypasta.add(msg)
             break
 
-        case "$rc":
-        case "$randomcopypasta":
+        case "t$rc":
+        case "t$randomcopypasta":
             copypasta.random(msg)
             break
 
-        case "$i":
-        case "$image":
+        case "t$i":
+        case "t$image":
             image.send(msg)
             break
 
-        case "$ai":
-        case "$addimage":
+        case "t$ai":
+        case "t$addimage":
             image.add(msg)
             break
 
-        case "$ri":
-        case "randomimage":
+        case "t$ri":
+        case "t$randomimage":
             image.random(msg)
             break
     }
