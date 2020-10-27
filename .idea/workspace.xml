@@ -19,13 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e13e1cb-8949-49a5-978d-3cdb07678f28" name="Default Changelist" comment="change prefix">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/copypasta.ts" beforeDir="false" afterPath="$PROJECT_DIR$/command/copypasta.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/fact.ts" beforeDir="false" afterPath="$PROJECT_DIR$/command/fact.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/image.ts" beforeDir="false" afterPath="$PROJECT_DIR$/command/image.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/ping.ts" beforeDir="false" afterPath="$PROJECT_DIR$/command/ping.ts" afterDir="false" />
-    </list>
+    <list default="true" id="5e13e1cb-8949-49a5-978d-3cdb07678f28" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,7 +97,7 @@
       <updated>1603694044105</updated>
       <workItem from="1603694045298" duration="3435000" />
       <workItem from="1603697629388" duration="17376000" />
-      <workItem from="1603769591837" duration="1870000" />
+      <workItem from="1603769591837" duration="2221000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1603698419110</created>
@@ -140,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603715305948</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update, guild based">
+      <created>1603771905405</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1603771905405</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,7 +164,8 @@
     <MESSAGE value="fixup! finish prototype" />
     <MESSAGE value="finish prototype" />
     <MESSAGE value="change prefix" />
-    <option name="LAST_COMMIT_MESSAGE" value="change prefix" />
+    <MESSAGE value="update, guild based" />
+    <option name="LAST_COMMIT_MESSAGE" value="update, guild based" />
   </component>
   <component name="WindowStateProjectService">
     <state x="494" y="189" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603770455987">
@@ -178,14 +180,14 @@
       <screen x="0" y="23" width="1920" height="1022" />
     </state>
     <state x="776" y="243" key="#com.intellij.ide.util.MemberChooser/1920.23.1920.1057/0.23.1920.1022@0.23.1920.1022" timestamp="1603696424856" />
-    <state x="571" y="94" key="CommitChangelistDialog2" timestamp="1603770768461">
+    <state x="584" y="91" key="CommitChangelistDialog2" timestamp="1603771905239">
       <screen x="0" y="23" width="1920" height="1022" />
     </state>
-    <state x="571" y="94" key="CommitChangelistDialog2/1920.23.1920.1057/0.23.1920.1022@0.23.1920.1022" timestamp="1603770768461" />
-    <state x="196" y="100" width="1536" height="817" key="DiffContextDialog" timestamp="1603715297794">
+    <state x="584" y="91" key="CommitChangelistDialog2/1920.23.1920.1057/0.23.1920.1022@0.23.1920.1022" timestamp="1603771905239" />
+    <state x="196" y="100" width="1536" height="817" key="DiffContextDialog" timestamp="1603771895806">
       <screen x="0" y="23" width="1920" height="1022" />
     </state>
-    <state x="196" y="100" width="1536" height="817" key="DiffContextDialog/1920.23.1920.1057/0.23.1920.1022@0.23.1920.1022" timestamp="1603715297794" />
+    <state x="196" y="100" width="1536" height="817" key="DiffContextDialog/1920.23.1920.1057/0.23.1920.1022@0.23.1920.1022" timestamp="1603771895806" />
     <state x="895" y="259" key="EnvironmentVariablesDialog" timestamp="1603770452500">
       <screen x="0" y="23" width="1920" height="1022" />
     </state>
