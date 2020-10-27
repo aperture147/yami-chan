@@ -24,4 +24,4 @@ RUN npm install --only=production
 
 COPY --from=build-env /app/dist /app/dist
 
-CMD npm start
+CMD ["npm", "start"]

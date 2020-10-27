@@ -36,16 +36,10 @@ export function add(msg: Message): void {
         return
     }
 
-    if (msg.attachments.size > 0 && msg.attachments[0].url) {
-        contentUrl = msg.attachments[0].url
-        if (validator.isURL(content[2])) {
-            if (!content[3]) {
-                msg.channel.send("No image content provided")
-                return
-            }
-        } else if (!content[2]) {
-            msg.channel.send("No image content provided")
-            return
+    if (msg.attachments.size > 0) {
+        const attachments = msg.attachments.array()[0]
+        if (attachments.url) {
+            contentUrl = attachments.url
         }
     }
 
