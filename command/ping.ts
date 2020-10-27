@@ -9,16 +9,16 @@ export function ping(msg: Message): void {
             .setTitle("Pong!")
             .setColor(0xff0000)
             .setDescription(
-                `🗿: \`${discordLatency}ms\`\n` +
-                `🗄: \`${Date.now() - now}ms\``)
+                `Discord: \`${discordLatency}ms\`\n` +
+                `Database: \`${Date.now() - now}ms\``)
         msg.channel.send(embed).then(() => msg.delete())
     }).catch(err => {
         const embed = new MessageEmbed()
             .setTitle("Pong!")
             .setColor(0xff0000)
             .setDescription(
-                `🗿: \`${discordLatency}ms\`\n` +
-                `🗄: \`${err}\``)
+                `Discord: \`${discordLatency}ms\`\n` +
+                `Database: \`${err}\``)
         msg.channel.send(embed).then(() => msg.delete())
     })
 
