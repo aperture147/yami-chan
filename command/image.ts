@@ -43,11 +43,9 @@ export function add(msg: Message): void {
                 msg.channel.send("No image content provided")
                 return
             }
-        } else {
-            if (!content[2]) {
-                msg.channel.send("No image content provided")
-                return
-            }
+        } else if (!content[2]) {
+            msg.channel.send("No image content provided")
+            return
         }
     }
 
