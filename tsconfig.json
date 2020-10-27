@@ -3,7 +3,8 @@
   "compilerOptions": {
     "outDir": "dist",
     "moduleResolution": "node",
-    "sourceMap": true
+    "sourceMap": true,
+    "strict": false
   },
   "exclude": [
     "node_modules"
