@@ -15,17 +15,14 @@ export function send(msg: Message): void {
     else
         promise = collection.findOne({"name": content[1]})
     promise.then(result => {
-        let content
-        if (result)
-            content = new MessageEmbed()
+        if (result) {
+            msg.channel.send(new MessageEmbed()
                 .setColor(0xff0000)
                 .setTitle(result.name)
                 .setDescription(result.content)
                 .setImage(result.url)
-                .setFooter(`Image ID: ${result._id}`)
-        else content = "No image found"
-        msg.channel.send(content).then(() => msg.delete())
-
+                .setFooter(`Image ID: ${result._id}`)).then(() => msg.delete())
+        } else msg.channel.send("No image found")
     })
         .catch(err => console.log(err))
 }

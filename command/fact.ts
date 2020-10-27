@@ -14,14 +14,13 @@ export function send(msg: Message): void {
     else
         promise = collection.findOne({"name": content[1]})
     promise.then(result => {
-        let content
-        if (result)
-            content = new MessageEmbed()
+        if (result) {
+            msg.channel.send(new MessageEmbed()
                 .setColor(0xff0000)
                 .setTitle(result.content)
                 .setFooter(`Fact ID: ${result._id}`)
-        else content = "No fact found"
-        msg.channel.send(content).then(() => msg.delete())
+            ).then(() => msg.delete())
+        } else msg.channel.send("No fact found")
     })
         .catch(err => console.log(err))
 }
