@@ -20,6 +20,7 @@ export function send(msg: Message): void {
             content = new MessageEmbed()
                 .setColor(0xff0000)
                 .setTitle(result.name)
+                .setDescription(result.content)
                 .setImage(result.url)
                 .setFooter(`Image ID: ${result._id}`)
         else content = "No image found"
@@ -44,7 +45,11 @@ export function add(msg: Message): void {
         collection.insertOne({
             "name": content[1],
             "url": content[2],
-            "content": content[3],
+            "content": msg.content
+                .replace("t$ai", "")
+                .replace(content[1], "")
+                .replace(content[2], "")
+                .trim(),
             "author": msg.author.id
         })
             .then(result => msg.channel.send(`New image added with id \`${result.insertedId}\``))
@@ -62,6 +67,7 @@ export function random(msg: Message): void {
             msg.channel.send(new MessageEmbed()
                 .setColor(0xff0000)
                 .setTitle(result.name)
+                .setDescription(result.content)
                 .setImage(result.url)
                 .setFooter(`Image ID: ${result._id}`)
             ).then(() => msg.delete())
