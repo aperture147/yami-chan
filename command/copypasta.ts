@@ -5,7 +5,7 @@ const ObjectID = require('mongodb').ObjectID
 const re = /[\s]+/
 
 export function send(msg: Message): void {
-    const collection = client.db("yami").collection("copypasta")
+    const collection = client.db("yami").collection("copypasta_" + msg.guild.id)
     const content = msg.content.split(re, 2)
     let promise
     // If the input is a mongo objectId
@@ -28,7 +28,7 @@ export function send(msg: Message): void {
 }
 
 export function add(msg: Message): void {
-    const collection = client.db("yami").collection("copypasta")
+    const collection = client.db("yami").collection("copypasta_" + msg.guild.id)
     const content = msg.content.split(re, 3)
     if (!content[1]) {
         msg.channel.send("No copypasta name provided")
@@ -51,7 +51,7 @@ export function add(msg: Message): void {
 }
 
 export function random(msg: Message): void {
-    const collection = client.db("yami").collection("copypasta")
+    const collection = client.db("yami").collection("copypasta_" + msg.guild.id)
     collection.aggregate([{"$sample": {"size": 1}}], (err, cursor) => {
         cursor.next().then(result => {
             msg.channel.send(new MessageEmbed()

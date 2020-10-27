@@ -6,7 +6,7 @@ const ObjectID = require('mongodb').ObjectID
 const re = /[\s]+/
 
 export function send(msg: Message): void {
-    const collection = client.db("yami").collection("images")
+    const collection = client.db("yami").collection("images_" + msg.guild.id)
     const content = msg.content.split(re, 2)
     let promise
     // If the input is a mongo objectId
@@ -19,17 +19,18 @@ export function send(msg: Message): void {
         if (result)
             content = new MessageEmbed()
                 .setColor(0xff0000)
-                .setTitle(result.content)
+                .setTitle(result.name)
                 .setImage(result.url)
                 .setFooter(`Image ID: ${result._id}`)
         else content = "No image found"
-        msg.channel.send(content)
+        msg.channel.send(content).then(() => msg.delete())
+
     })
         .catch(err => console.log(err))
 }
 
 export function add(msg: Message): void {
-    const collection = client.db("yami").collection("images")
+    const collection = client.db("yami").collection("images_" + msg.guild.id)
     const content = msg.content.split(re, 4)
     if (!content[1]) {
         msg.channel.send("No image name provided")
@@ -55,14 +56,15 @@ export function add(msg: Message): void {
 }
 
 export function random(msg: Message): void {
-    const collection = client.db("yami").collection("images")
+    const collection = client.db("yami").collection("images_" + msg.guild.id)
     collection.aggregate([{"$sample": {"size": 1}}], (err, cursor) => {
         cursor.next().then(result => {
             msg.channel.send(new MessageEmbed()
                 .setColor(0xff0000)
-                .setTitle(result.content)
+                .setTitle(result.name)
                 .setImage(result.url)
-                .setFooter(`Image ID: ${result._id}`))
+                .setFooter(`Image ID: ${result._id}`)
+            ).then(() => msg.delete())
             cursor.close().catch(console.error)
         }).catch(console.error)
     })
