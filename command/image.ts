@@ -30,31 +30,44 @@ export function send(msg: Message): void {
 export function add(msg: Message): void {
     const collection = client.db("yami").collection("images_" + msg.guild.id)
     const content = msg.content.split(re, 4)
+    let contentUrl = content[2]
     if (!content[1]) {
         msg.channel.send("No image name provided")
         return
     }
-    if (!content[3]) {
-        msg.channel.send("No image content provided")
-        return
+
+    if (msg.attachments.size > 0 && msg.attachments[0].url) {
+        contentUrl = msg.attachments[0].url
+        if (validator.isURL(content[2])) {
+            if (!content[3]) {
+                msg.channel.send("No image content provided")
+                return
+            }
+        } else {
+            if (!content[2]) {
+                msg.channel.send("No image content provided")
+                return
+            }
+        }
     }
-    if (!!content[2] && validator.isURL(content[2])) {
-        collection.insertOne({
-            "name": content[1],
-            "url": content[2],
-            "content": msg.content
-                .replace("t$ai", "")
-                .replace(content[1], "")
-                .replace(content[2], "")
-                .trim(),
-            "author": msg.author.id
-        })
-            .then(result => msg.channel.send(`New image added with id \`${result.insertedId}\``))
-            .catch(err => {
-                msg.channel.send("Cannot add new image")
-                console.error(err)
-            });
-    } else msg.channel.send("No valid image Url found")
+
+    if (!contentUrl || !validator.isURL(contentUrl))
+        msg.channel.send("No valid image Url found")
+    collection.insertOne({
+        "name": content[1],
+        "url": contentUrl,
+        "content": msg.content
+            .replace("t$ai", "")
+            .replace(content[1], "")
+            .replace(content[2], "")
+            .trim(),
+        "author": msg.author.id
+    })
+        .then(result => msg.channel.send(`New image added with id \`${result.insertedId}\``))
+        .catch(err => {
+            msg.channel.send("Cannot add new image")
+            console.error(err)
+        });
 }
 
 export function random(msg: Message): void {
