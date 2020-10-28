@@ -1,8 +1,37 @@
 import {Message, MessageEmbed} from "discord.js";
 import {client} from "../mongo";
+import {HelpInfo} from "./help";
 
 const ObjectID = require('mongodb').ObjectID
 const re = /[\s]+/
+
+export const help: HelpInfo = {
+    name: "Fact",
+    description: "Show facts",
+    commands: [
+        {
+            command: "t$fact {fact name | fact ID}",
+            alias: ["t$f"],
+            description: "Get a specific fact",
+            examples: [
+                "t$f chemgio",
+                "t$f 5f97f7844b83e2000fe6102c"
+            ]
+        },
+        {
+            command: "t$addfact {fact name} {fact content}",
+            alias: ["t$af"],
+            description: "Add a fact",
+            examples: ["t$af chemgio The quick brown fox jumps over a lazy dog"]
+        },
+        {
+            command: "t$randomfact",
+            alias: ["t$rf"],
+            description: "Get a random fact",
+        },
+    ]
+}
+
 
 export function send(msg: Message): void {
     const collection = client.db("yami").collection("facts_" + msg.guild.id)

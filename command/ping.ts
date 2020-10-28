@@ -1,5 +1,18 @@
 import {Message, MessageEmbed} from "discord.js";
 import {client} from "../mongo";
+import {HelpInfo} from "./help";
+
+export const help: HelpInfo = {
+    name: "Ping",
+    description: "Display ping info",
+    commands: [
+        {
+            command: "t$ping",
+            alias: ["t$p"],
+            description: "Get ping information from server",
+        }
+    ]
+}
 
 export function ping(msg: Message): void {
     const now = Date.now()

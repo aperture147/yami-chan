@@ -1,9 +1,36 @@
 import {Message, MessageEmbed} from "discord.js";
 import {client} from "../mongo";
 import validator from 'validator';
+import {HelpInfo} from "./help";
 
 const ObjectID = require('mongodb').ObjectID
 const re = /[\s]+/
+export const help: HelpInfo = {
+    name: "Image",
+    description: "Show images",
+    commands: [
+        {
+            command: "t$image {image name | image ID}",
+            alias: ["t$i"],
+            description: "Get a specific image",
+            examples: [
+                "t$i yami",
+                "t$i 5f97f7844b83e2000fe6102c"
+            ]
+        },
+        {
+            command: "t$addimage {image name} {image url} [image content]",
+            alias: ["t$ai"],
+            description: "Add an image",
+            examples: ["t$af yami The quick brown fox jumps over a lazy dog"]
+        },
+        {
+            command: "t$randomimage",
+            alias: ["t$r"],
+            description: "Get a random image",
+        },
+    ]
+}
 
 export function send(msg: Message): void {
     const collection = client.db("yami").collection("images_" + msg.guild.id)

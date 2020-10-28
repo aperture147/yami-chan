@@ -4,6 +4,7 @@ import * as fact from "./command/fact"
 import * as copypasta from "./command/copypasta"
 import * as image from "./command/image"
 import {ping} from "./command/ping"
+import {sendHelp} from "./command/help";
 
 const re = /[\s]+/
 
@@ -58,6 +59,11 @@ export function handle(msg: Message): void {
         case "t$ri":
         case "t$randomimage":
             image.random(msg)
+            break
+
+        case "t$help":
+        case "t$h":
+            sendHelp(msg)
             break
     }
 }

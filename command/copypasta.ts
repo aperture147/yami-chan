@@ -1,8 +1,35 @@
 import {Message, MessageEmbed} from "discord.js";
 import {client} from "../mongo";
+import {HelpInfo} from "./help";
 
 const ObjectID = require('mongodb').ObjectID
 const re = /[\s]+/
+export const help: HelpInfo = {
+    name: "Copypasta",
+    description: "Show copypasta saved from members",
+    commands: [
+        {
+            command: "t$copypasta {copypasta name | copypasta ID}",
+            alias: ["t$c"],
+            description: "Get a specific copypasta",
+            examples: [
+                "t$c yami",
+                "t$c 5f97f7844b83e2000fe6102c"
+            ]
+        },
+        {
+            command: "t$addcopypasta {copypasta name} {copypasta content}",
+            alias: ["t$ac"],
+            description: "Add a copypasta",
+            examples: ["t$ac khuyen Xin chào bạn, tôi là nhà tuyển dụng của tập đoàn giải trí Rạp xiếc Trung Ưng Group..."]
+        },
+        {
+            command: "t$randomcopypasta",
+            alias: ["t$rc"],
+            description: "Get a random copypasta",
+        },
+    ]
+}
 
 export function send(msg: Message): void {
     const collection = client.db("yami").collection("copypasta_" + msg.guild.id)
@@ -38,11 +65,13 @@ export function add(msg: Message): void {
         msg.channel.send("No copypasta content provided")
         return
     }
-    collection.insertOne({
-        "name": content[1],
-        "content": msg.content.replace("t$ac", "").replace(content[1], "").trim(),
-        "author": msg.author.id
-    })
+    collection.updateOne(
+        {"name": content[1]},
+        {
+            "content": msg.content.replace("t$ac", "").replace(content[1], "").trim(),
+            "author": msg.author.id
+        },
+        {upsert: true})
         .then(result => msg.channel.send(`New copypasta added with id \`${result.insertedId}\``))
         .catch(err => {
             msg.channel.send(`Cannot add new copypasta`)
