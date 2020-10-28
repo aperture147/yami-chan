@@ -2,9 +2,11 @@ import {Client} from "discord.js";
 import {handle} from "./command";
 
 const client = new Client();
+let botId = ""
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
+    client.user.id = botId
     client.user.setPresence({
         activity: {
             name: 'Ylang Ylang EP (FKJ)',
@@ -16,7 +18,9 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-    handle(msg)
+    // Prevent self message
+    if (msg.author.id === botId)
+        handle(msg)
 });
 
 client.login(process.env.DISCORD_TOKEN);
