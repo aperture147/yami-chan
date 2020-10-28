@@ -20,8 +20,9 @@ WORKDIR /app
 
 COPY package.json package.json
 
-RUN npm install --only=production
+RUN npm install --no-optional --only=production && \
+    npm cache clean --force
 
 COPY --from=build-env /app/dist /app/dist
 
-CMD ["npm", "start"]
+CMD ["node", "dist/bot.js"]
