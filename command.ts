@@ -65,5 +65,8 @@ export function handle(msg: Message): void {
         case "t$h":
             sendHelp(msg)
             break
+
+        case "t$code":
+            msg.channel.send("https://github.com/aperture147/yami-chan")
     }
 }
