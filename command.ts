@@ -67,6 +67,7 @@ export function handle(msg: Message): void {
             break
 
         case "t$code":
-            msg.channel.send("https://github.com/aperture147/yami-chan")
+            msg.channel.send("https://github.com/aperture147/yami-chan").then(() => msg.delete())
+            break
     }
 }
