@@ -76,7 +76,7 @@ export function add(msg: Message): void {
         {upsert: true})
         .then(result => {
             if (result.upsertedId)
-                msg.channel.send(`New copypasta added with id \`${result}\``)
+                msg.channel.send(`New copypasta added with id \`${result.upsertedId._id}\``)
             else msg.channel.send(`\`${content[1]}\` copypasta has been updated`)
         })
         .catch(err => {
