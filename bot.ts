@@ -19,7 +19,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
     // Prevent self message
-    if (msg.author.id === botId)
+    if (msg.author.id !== botId)
         handle(msg)
 });
 
