@@ -65,12 +65,20 @@ export function add(msg: Message): void {
         msg.channel.send("No fact content provided")
         return
     }
-    collection.insertOne({
-        "name": content[1],
-        "content": msg.content.replace("t$af", "").replace(content[1], "").trim(),
-        "author": msg.author.id
-    })
-        .then(result => msg.channel.send(`New fact added with id \`${result.insertedId}\``))
+    collection.updateOne(
+        {"name": content[1]},
+        {
+            $set: {
+                "content": msg.content.replace("t$af", "").replace(content[1], "").trim(),
+                "author": msg.author.id
+            }
+        },
+        {upsert: true})
+        .then(result => {
+            if (result.upsertedId)
+                msg.channel.send(`New fact added with id \`${result}\``)
+            else msg.channel.send(`\`${content[1]}\` fact has been updated`)
+        })
         .catch(err => {
             msg.channel.send(`Cannot add new fact`)
             console.error(err)

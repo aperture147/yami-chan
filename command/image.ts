@@ -72,17 +72,25 @@ export function add(msg: Message): void {
 
     if (!contentUrl || !validator.isURL(contentUrl))
         msg.channel.send("No valid image Url found")
-    collection.insertOne({
-        "name": content[1],
-        "url": contentUrl,
-        "content": msg.content
-            .replace("t$ai", "")
-            .replace(content[1], "")
-            .replace(content[2], "")
-            .trim(),
-        "author": msg.author.id
-    })
-        .then(result => msg.channel.send(`New image added with id \`${result.insertedId}\``))
+    collection.updateOne(
+        {"name": content[1]},
+        {
+            $set: {
+                "url": contentUrl,
+                "content": msg.content
+                    .replace("t$ai", "")
+                    .replace(content[1], "")
+                    .replace(content[2], "")
+                    .trim(),
+                "author": msg.author.id
+            }
+        },
+        {upsert: true})
+        .then(result => {
+            if (result.upsertedId)
+                msg.channel.send(`New image added with id \`${result}\``)
+            else msg.channel.send(`\`${content[1]}\` image has been updated`)
+        })
         .catch(err => {
             msg.channel.send("Cannot add new image")
             console.error(err)

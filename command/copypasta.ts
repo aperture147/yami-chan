@@ -68,11 +68,17 @@ export function add(msg: Message): void {
     collection.updateOne(
         {"name": content[1]},
         {
-            "content": msg.content.replace("t$ac", "").replace(content[1], "").trim(),
-            "author": msg.author.id
+            $set: {
+                "content": msg.content.replace("t$ac", "").replace(content[1], "").trim(),
+                "author": msg.author.id
+            }
         },
         {upsert: true})
-        .then(result => msg.channel.send(`New copypasta added with id \`${result.insertedId}\``))
+        .then(result => {
+            if (result.upsertedId)
+                msg.channel.send(`New copypasta added with id \`${result}\``)
+            else msg.channel.send(`\`${content[1]}\` copypasta has been updated`)
+        })
         .catch(err => {
             msg.channel.send(`Cannot add new copypasta`)
             console.error(err)
