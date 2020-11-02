@@ -20,7 +20,11 @@ client.on('ready', () => {
 client.on('message', msg => {
     // Prevent self message
     if (msg.author.id !== botId)
-        handle(msg)
+        try {
+            handle(msg)
+        } catch (e) {
+            msg.channel.send("An server error occurred, please contact bot dev!")
+        }
 });
 
 client.login(process.env.DISCORD_TOKEN);
